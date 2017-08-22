@@ -1,9 +1,5 @@
 package ru.iris.xiaomi4j;
 
-/**
- * @author nix (06.08.2017)
- */
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,8 +16,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * Encrypts communication between openhab & xiaomi bridge (required by xiaomi).
- *
  * @author Ondřej Pečta - 29. 12. 2016 - Contribution to Xiaomi MiHome Binding for OH 1.x
  * @author Dieter Schmidt - Refactor logger
  */

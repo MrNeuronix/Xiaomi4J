@@ -28,6 +28,7 @@ import java.net.InetAddress;
 
 import ru.iris.xiaomi4j.connection.ConnectionListener;
 import ru.iris.xiaomi4j.connection.GatewayConnection;
+import ru.iris.xiaomi4j.enums.Devices;
 import ru.iris.xiaomi4j.watchers.*;
 
 public class Gateway implements ConnectionListener {
@@ -97,11 +98,17 @@ public class Gateway implements ConnectionListener {
 	@Override
 	public void onDataReceived(JsonObject message) {
 		Notification notification = new Notification();
-		notification.setRawMessage(message.toString());
+		notification.setRawMessage(message);
 
 		LOGGER.trace("Received message {}", message);
 		String sid = message.has("sid") ? message.get("sid").getAsString() : null;
 		String command = message.get("cmd").getAsString();
+
+		if(message.has("model")) {
+			notification.setType(Devices.parse(message.get("model").getAsString()));
+		}
+
+		notification.setSid(sid);
 
 		switch (command) {
 			case "iam":
@@ -167,12 +174,12 @@ public class Gateway implements ConnectionListener {
 		sendMessageToBridge(message.toString());
 	}
 
-	void writeToDevice(String itemId, String[] keys, Object[] values) {
+	public void writeToDevice(String itemId, String[] keys, Object[] values) {
 		sendCommandToBridge("write", new String[] { "sid", "data" },
 		                    new Object[] { itemId, createDataJsonString(keys, values) });
 	}
 
-	void writeToBridge(String[] keys, Object[] values) {
+	public void writeToBridge(String[] keys, Object[] values) {
 		sendCommandToBridge("write", new String[] { "model", "sid", "short_id", "data" },
 		                    new Object[] { "gateway", getSid(), "0", createDataJsonString(keys, values) });
 	}

@@ -29,14 +29,15 @@ public class TestGateway {
      Watcher watcher = new Watcher() {
        @Override
        public void onNotification(Notification notification) {
-         System.out.println("Gateway got a message: " + notification.getRawMessage());
+           System.out.println("Gateway got a message: " + notification.getRawMessage());
+           System.out.println("Type of device: " + notification.getType());
        }
      };
 
      Discovery discovery = new Discovery();
      discovery.startScan();
 
-     Thread.sleep(5000L);
+     Thread.sleep(3000L);
 
 	   List<GatewayModel> gateways = discovery.getGatewayModels();
 	   System.out.println("Gateways found: " + gateways.size());
@@ -47,8 +48,20 @@ public class TestGateway {
 			   gateways.get(0).getHost(),
 			   gateways.get(0).getPort(),
 			   gateways.get(0).getSid(),
-			   "uwhqlfglf4cuywne",
+			   "khs3lyfam8ct1xbr",
 			   watcher);
+
+       Thread.sleep(2000L);
+
+       gateway.discoverItems();
+
+       Thread.sleep(2000L);
+
+       gateway.writeToDevice("158d00012f7973", new String[]{"channel_1"}, new String[]{"on"});
+
+       Thread.sleep(2000L);
+
+       gateway.writeToDevice("158d00012f7973", new String[]{"channel_1"}, new String[]{"off"});
    }
 
 }

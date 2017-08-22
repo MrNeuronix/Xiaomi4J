@@ -16,14 +16,35 @@
 
 package ru.iris.xiaomi4j.watchers;
 
-public class Notification {
-	private String rawMessage;
+import com.google.gson.JsonObject;
+import ru.iris.xiaomi4j.enums.Devices;
 
-	public String getRawMessage() {
+public class Notification {
+	private JsonObject rawMessage;
+	private Devices type;
+	private String sid;
+
+	public JsonObject getRawMessage() {
 		return rawMessage;
 	}
 
-	public void setRawMessage(String rawMessage) {
+	public void setRawMessage(JsonObject rawMessage) {
 		this.rawMessage = rawMessage;
+	}
+
+	public Devices getType() {
+		return type;
+	}
+
+	public void setType(Devices type) {
+		this.type = type;
+	}
+
+	public String getSid() {
+		return sid;
+	}
+
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 }
