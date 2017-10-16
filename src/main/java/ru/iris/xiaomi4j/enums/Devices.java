@@ -7,13 +7,15 @@ public enum Devices {
     UNKNOWN("unknown"),
     GATEWAY("gateway"),
     BRIDGE("bridge"),
+    SWITCH("switch"),
     SENSOR_HT("sensor_ht"),
     SENSOR_AQARA_WEATHER("sensor_weather_v1"),
     SWITCH_AQARA_1BUTTON("ctrl_neutral1"),
     SWITCH_AQARA_2BUTTONS("ctrl_neutral2"),
     SWITCH_AQARA_ZERO_1BUTTON("ctrl_neutral1"),
     SWITCH_AQARA_ZERO_2BUTTONS("ctrl_neutral2"),
-    SENSOR_AQARA_MAGNET("sensor_magnet.aq2");
+    SENSOR_AQARA_MAGNET("sensor_magnet.aq2"),
+    SENSOR_AQARA_FLOOD("sensor_wleak.aq1");
 
     private String name;
 
