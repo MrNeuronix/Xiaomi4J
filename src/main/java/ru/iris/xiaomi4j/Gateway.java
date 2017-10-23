@@ -108,6 +108,7 @@ public class Gateway implements ConnectionListener {
 			notification.setType(Devices.parse(message.get("model").getAsString()));
 		}
 
+		notification.setCommand(command);
 		notification.setSid(sid);
 
 		switch (command) {

@@ -20,6 +20,7 @@ import com.google.gson.JsonObject;
 import ru.iris.xiaomi4j.enums.Devices;
 
 public class Notification {
+	private String command;
 	private JsonObject rawMessage;
 	private Devices type;
 	private String sid;
@@ -46,5 +47,13 @@ public class Notification {
 
 	public void setSid(String sid) {
 		this.sid = sid;
+	}
+
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
 	}
 }
