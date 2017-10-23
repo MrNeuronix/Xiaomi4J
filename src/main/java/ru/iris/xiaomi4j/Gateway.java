@@ -129,10 +129,10 @@ public class Gateway implements ConnectionListener {
 				sendCommandToBridge("read", getSid());
 				return;
 			case "read_ack":
-				LOGGER.debug("Device {} honored read request", sid);
+				LOGGER.trace("Device {} honored read request", sid);
 				break;
 			case "write_ack":
-				LOGGER.debug("Device {} honored write request", sid);
+				LOGGER.trace("Device {} honored write request", sid);
 				break;
 		}
 

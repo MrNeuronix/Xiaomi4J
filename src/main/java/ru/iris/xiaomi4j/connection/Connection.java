@@ -179,7 +179,7 @@ public abstract class Connection {
 					logger.trace("Thread {} waiting for data on port {}", this, socket.getLocalPort());
 					socket.receive(dgram);
 					InetAddress address = dgram.getAddress();
-					logger.debug("Received Datagram from {}:{} on Port {}", address.getHostAddress(), dgram.getPort(),
+					logger.trace("Received Datagram from {}:{} on Port {}", address.getHostAddress(), dgram.getPort(),
 					             socket.getLocalPort());
 					String sentence = new String(dgram.getData(), 0, dgram.getLength());
 					JsonObject message = parser.parse(sentence).getAsJsonObject();
