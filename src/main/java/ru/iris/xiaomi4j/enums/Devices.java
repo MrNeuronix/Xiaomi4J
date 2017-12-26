@@ -15,7 +15,9 @@ public enum Devices {
     SWITCH_AQARA_ZERO_1BUTTON("ctrl_neutral1"),
     SWITCH_AQARA_ZERO_2BUTTONS("ctrl_neutral2"),
     SENSOR_AQARA_MAGNET("sensor_magnet.aq2"),
-    SENSOR_AQARA_FLOOD("sensor_wleak.aq1");
+    SENSOR_AQARA_FLOOD("sensor_wleak.aq1"),
+	  SENSOR_MOTION("sensor_motion"),
+		SENSOR_AQUARA_MOTION("sensor_motion.aq2");
 
     private String name;
 
